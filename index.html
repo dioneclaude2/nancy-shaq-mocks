@@ -54,6 +54,8 @@ h2 { font-family: var(--display); font-weight: 400; font-size: 30px; line-height
 .dots i { width: 6px; height: 6px; border-radius: 50%; background: #ffffff; opacity: .4; }
 .dots i.on { opacity: 1; }
 .feedcap { padding: 2px 12px 12px; font-size: 12.5px; line-height: 1.35; overflow-wrap: anywhere; }
+.acts { display: flex; flex-wrap: wrap; gap: 8px; }
+.dl { text-decoration: none; border-color: var(--accent); color: var(--accent); }
 .copybox { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; }
 .copybox p { margin: 0; overflow-wrap: anywhere; }
 .tags { color: var(--accent); font-size: 14px; }
@@ -64,7 +66,7 @@ h2 { font-family: var(--display); font-weight: 400; font-size: 30px; line-height
 <body>
 <div class="wrap">
   <h1>Shaq night, in posting order</h1>
-  <p class="sub">How the four posts and two trial reels will look, with final captions. Videos play muted. Tap the speaker to hear one.</p>
+  <p class="sub">How the four posts and two trial reels will look, with final captions. Videos play muted. Tap the speaker to hear one. Download buttons give the full-quality files.</p>
   <h2>Main posts</h2>
   <p class="sec">Posting on @nancymonsters, in this order.</p>
   <div class="row" id="row"></div>
@@ -94,6 +96,14 @@ const ICONS = [
   '<path d="M21 4 3 11l7 3 3 7z"/><path d="M10 14l11-10"/>'
 ];
 const esc = s => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+const DL = {
+  "Security": [["Download video", "download/1-Security.mp4"]],
+  "Shimmy with Shaq": [["Download video", "download/2-Shimmy-with-Shaq.mp4"]],
+  "Shaq meme": [["Download video", "download/3-Shaq-Meme-Reel.mp4"]],
+  "Vibes": [["Download video", "download/4-Vibes.mov"]],
+  "Vibes trial reel": [["Download video", "download/4-Vibes.mov"], ["Download cover", "download/5-Trial-Reel-Cover.png"]],
+  "Matching heights": [["Download video", "download/6-Matching-Reel.mp4"]]
+};
 const row = document.getElementById("row"), row2 = document.getElementById("row2");
 POSTS.forEach((p, i) => {
   const el = document.createElement("article");
@@ -112,7 +122,7 @@ POSTS.forEach((p, i) => {
       <div class="rail">${ICONS.map(d => `<svg viewBox="0 0 24 24" aria-hidden="true">${d}</svg>`).join("")}</div>
       <div class="meta"><div class="who"><span class="dot">N</span>${p.trial ? "trial account" : "nancymonsters"}</div><div class="cap">${esc(p.caption)} ${esc(p.tags)}</div></div>
     </div>`}
-    <div class="copybox"><p>${esc(p.caption)}</p><p class="tags">${esc(p.tags)}</p><button class="copy" id="copy${i}">Copy caption</button></div>`;
+    <div class="copybox"><p>${esc(p.caption)}</p><p class="tags">${esc(p.tags)}</p><div class="acts"><button class="copy" id="copy${i}">Copy caption</button>${DL[p.name].map(d => `<a class="copy dl" href="${d[1]}" download>${d[0]}</a>`).join("")}</div></div>`;
   (p.trial ? row2 : row).appendChild(el);
   const sl = el.querySelector(".slides");
   if (sl) {
