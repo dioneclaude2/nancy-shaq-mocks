@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<style>*{box-sizing:border-box}body{margin:0}img{max-width:100%}</style>
+<title>Shaq Night Post Mocks</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap">
+<style>
+/* Layout: a single row of four phones in posting order, each with its copyable caption underneath. */
+:root {
+  --bg: #fbf3f4; --fg: #2a1a24; --muted: #7a6470; --line: #eed5e0; --accent: #d1009f; --card: #ffffff;
+  --display: "Instrument Serif", Georgia, serif;
+  --body: "DM Sans", -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --screen: #000000; --on-screen: #ffffff;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #1b1218; --fg: #f8ebf1; --muted: #b59dab; --line: #3d2a35; --accent: #ff4fd1; --card: #261a22; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #1b1218; --fg: #f8ebf1; --muted: #b59dab; --line: #3d2a35; --accent: #ff4fd1; --card: #261a22; color-scheme: dark }
+body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 15px; line-height: 1.45; }
+.wrap { max-width: 1500px; margin: 0 auto; padding-block: 36px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1 { font-family: var(--display); font-weight: 400; font-size: clamp(34px, 5vw, 52px); line-height: 1.05; margin: 0 0 6px; text-wrap: balance; }
+.sub { color: var(--muted); margin: 0 0 12px; max-width: 62ch; }
+h2 { font-family: var(--display); font-weight: 400; font-size: 30px; line-height: 1.1; margin: 28px 0 2px; }
+.sec { color: var(--muted); margin: 0 0 16px; max-width: 62ch; }
+.row { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: 20px; }
+.post { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.label { display: flex; align-items: baseline; gap: 8px; }
+.num { font-family: var(--display); font-size: 26px; color: var(--accent); font-variant-numeric: tabular-nums; }
+.name { font-weight: 600; }
+.kind { color: var(--muted); font-size: 13px; margin-left: auto; }
+.phone { position: relative; aspect-ratio: 9 / 16; max-width: 100%; width: 100%; border-radius: 22px; overflow: hidden;
+  background: var(--screen); color: var(--on-screen); }
+.phone video, .phone img.media { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.scrim { position: absolute; inset: auto 0 0 0; height: 34%; background: linear-gradient(to top, rgba(0,0,0,.72), rgba(0,0,0,0)); pointer-events: none; }
+.top { position: absolute; inset: 12px 14px auto 14px; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 15px; text-shadow: 0 1px 3px rgba(0,0,0,.6); pointer-events: none; }
+.rail { position: absolute; right: 10px; bottom: 74px; display: flex; flex-direction: column; gap: 16px; align-items: center; pointer-events: none; }
+.rail svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.8; filter: drop-shadow(0 1px 2px rgba(0,0,0,.6)); }
+.meta { position: absolute; left: 12px; right: 48px; bottom: 12px; font-size: 12.5px; line-height: 1.35; pointer-events: none; }
+.who { display: flex; align-items: center; gap: 7px; font-weight: 600; margin-bottom: 5px; }
+.dot { width: 24px; height: 24px; border-radius: 50%; background: #ff00d1; color: #fcf6eb; display: grid; place-items: center; font-family: var(--display); font-size: 16px; }
+.cap { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.sound { position: absolute; top: 44px; right: 12px; width: 34px; height: 34px; border: 0; border-radius: 50%; background: rgba(0,0,0,.55); color: #fff; font: 600 11px var(--body); cursor: pointer; }
+.sound:focus-visible, .copy:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.feed { background: var(--screen); color: var(--on-screen); border-radius: 22px; overflow: hidden; }
+.feedhead { padding: 10px 12px; margin: 0; font-size: 13px; }
+.slides { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; aspect-ratio: 4 / 5; max-width: 100%; scrollbar-width: none; }
+.slides img { flex: 0 0 100%; width: 100%; height: 100%; object-fit: cover; scroll-snap-align: center; }
+.dots { display: flex; justify-content: center; gap: 5px; padding: 9px 0 4px; }
+.dots i { width: 6px; height: 6px; border-radius: 50%; background: #ffffff; opacity: .4; }
+.dots i.on { opacity: 1; }
+.feedcap { padding: 2px 12px 12px; font-size: 12.5px; line-height: 1.35; overflow-wrap: anywhere; }
+.copybox { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; }
+.copybox p { margin: 0; overflow-wrap: anywhere; }
+.tags { color: var(--accent); font-size: 14px; }
+.copy { align-self: flex-start; background: none; border: 1px solid var(--line); color: var(--fg); border-radius: 999px; padding: 4px 12px; font: 500 13px var(--body); cursor: pointer; }
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <h1>Shaq night, in posting order</h1>
+  <p class="sub">How the four posts and two trial reels will look, with final captions. Videos play muted. Tap the speaker to hear one.</p>
+  <h2>Main posts</h2>
+  <p class="sec">Posting on @nancymonsters, in this order.</p>
+  <div class="row" id="row"></div>
+  <h2>Trial reels</h2>
+  <p class="sec">Posting from Susan's account or the Hello Nancy official account, because Nancy Monsters can't do trial reels.</p>
+  <div class="row" id="row2"></div>
+</div>
+
+<script>
+const POSTS = [
+  { name: "Security", kind: "Reel", video: "media/security.mp4", poster: "media/security.jpg",
+    caption: "getting ready took hours. getting rejected took seconds. 🐙", tags: "#Halloween2026 #HalloweenCostume #Miami" },
+  { name: "Shimmy with Shaq", kind: "Reel", video: "media/shimmy.mp4", poster: "media/shimmy.jpg",
+    caption: "shaq shimmied and laughed with us once. we're basically best friends now. 🤝🐙", tags: "#Shaq #DJDiesel #Halloween2026" },
+  { name: "Shaq meme", kind: "Reel", video: "media/meme-reel.mp4", poster: "media/meme-reel.jpg",
+    caption: "turns out there's always a bigger one 😏", tags: "#Shaq #DJDiesel #Halloween2026" },
+  { name: "Vibes", kind: "Reel", video: "media/vibes.mp4", poster: "media/vibes.jpg",
+    caption: "sending this to everyone i saw on saturday. 🐙", tags: "#Halloween2026 #HalloweenCostume #Miami" },
+  { name: "Vibes trial reel", kind: "Trial reel, tap to play", cover: true, video: "media/vibes.mp4", poster: "media/vibes-cover.jpg",
+    trial: true, caption: "dressed up as my favorite vibe", tags: "#Halloween2026 #HalloweenCostume #Miami" },
+  { name: "Matching heights", kind: "Trial reel", trial: true, video: "media/matching.mp4", poster: "media/matching.jpg",
+    caption: "matching heights. matching energy. 😏", tags: "#Shaq #DJDiesel #Halloween2026" }
+];
+const ICONS = [
+  '<path d="M12 20s-7-4.4-9-8.6C1.6 8.3 3.6 5 6.8 5c2 0 3.6 1 5.2 3 1.6-2 3.2-3 5.2-3 3.2 0 5.2 3.3 3.8 6.4-2 4.2-9 8.6-9 8.6z"/>',
+  '<path d="M21 12a9 9 0 1 1-4-7.5L21 3l-1 4.5A9 9 0 0 1 21 12z"/>',
+  '<path d="M21 4 3 11l7 3 3 7z"/><path d="M10 14l11-10"/>'
+];
+const esc = s => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+const row = document.getElementById("row"), row2 = document.getElementById("row2");
+POSTS.forEach((p, i) => {
+  const el = document.createElement("article");
+  el.className = "post";
+  const slides = p.slides;
+  const media = slides
+    ? `<div class="slides" tabindex="0" aria-label="Carousel, swipe to see slide 2">${slides.map((u, n) => `<img src="${u}" alt="${n ? "Close-up of her face in the costume" : "Shaq meme with the text POV: you're 7'1 still not the tallest in the photo"}">`).join("")}</div>`
+    : p.video
+    ? `<video src="${p.video}" poster="${p.poster}" muted loop playsinline ${p.cover ? "" : "autoplay"} preload="metadata"></video><button class="sound" id="sound${i}" aria-label="Turn sound on">Mute</button>`
+    : "";
+  el.innerHTML = `
+    <div class="label"><span class="num">${i + 1}</span><span class="name">${esc(p.name)}</span><span class="kind">${p.kind}</span></div>
+    ${slides ? `<div class="feed"><div class="who feedhead"><span class="dot">N</span>${p.trial ? "trial account" : "nancymonsters"}</div>${media}<div class="dots"><i></i><i></i></div><div class="feedcap"><b>${p.trial ? "trial account" : "nancymonsters"}</b> ${esc(p.caption)} ${esc(p.tags)}</div></div>` : `<div class="phone">${media}
+      <div class="scrim"></div>
+      <div class="top"><span>Reels</span></div>
+      <div class="rail">${ICONS.map(d => `<svg viewBox="0 0 24 24" aria-hidden="true">${d}</svg>`).join("")}</div>
+      <div class="meta"><div class="who"><span class="dot">N</span>${p.trial ? "trial account" : "nancymonsters"}</div><div class="cap">${esc(p.caption)} ${esc(p.tags)}</div></div>
+    </div>`}
+    <div class="copybox"><p>${esc(p.caption)}</p><p class="tags">${esc(p.tags)}</p><button class="copy" id="copy${i}">Copy caption</button></div>`;
+  (p.trial ? row2 : row).appendChild(el);
+  const sl = el.querySelector(".slides");
+  if (sl) {
+    const ds = el.querySelectorAll(".dots i");
+    const mark = () => { const k = Math.round(sl.scrollLeft / sl.clientWidth); ds.forEach((d, n) => d.classList.toggle("on", n === k)); };
+    sl.addEventListener("scroll", mark, { passive: true }); mark();
+  }
+  const vid = el.querySelector("video");
+  if (p.cover && vid) vid.addEventListener("click", () => { vid.paused ? vid.play().catch(() => {}) : vid.pause(); });
+  const btn = el.querySelector(".sound");
+  if (btn) btn.addEventListener("click", () => {
+    const v = el.querySelector("video");
+    const on = v.muted;
+    document.querySelectorAll("video").forEach(o => { o.muted = true; });
+    document.querySelectorAll(".sound").forEach(b => { b.textContent = "Mute"; b.setAttribute("aria-label", "Turn sound on"); });
+    if (on) { v.muted = false; v.play().catch(() => {}); btn.textContent = "On"; btn.setAttribute("aria-label", "Turn sound off"); }
+  });
+  const copy = el.querySelector(".copy");
+  copy.addEventListener("click", async () => {
+    const text = p.caption + "\n\n" + p.tags;
+    try { await navigator.clipboard.writeText(text); copy.textContent = "Copied"; }
+    catch { const r = document.createRange(); r.selectNodeContents(el.querySelector(".copybox")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); copy.textContent = "Selected, press copy"; }
+    setTimeout(() => { copy.textContent = "Copy caption"; }, 1800);
+  });
+});
+</script>
+
+</body>
+</html>
